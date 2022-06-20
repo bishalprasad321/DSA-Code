@@ -53,7 +53,6 @@ public:
         arr[index] = value;
 
         while (index > 1)
-            ;
         {
             int parent = index / 2;
 
