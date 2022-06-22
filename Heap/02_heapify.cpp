@@ -68,7 +68,7 @@ void Heap :: printHeap()
     cout << endl;
 }
 
-void heapify(int arr[], int size, int i)
+void heapifyMax(int arr[], int size, int i)
 {
     int largest = i;
     int left = 2*i;
@@ -87,27 +87,60 @@ void heapify(int arr[], int size, int i)
     if (largest != i)
     {
         swap(arr[largest], arr[i]);
-        heapify(arr, size, largest);
+        heapifyMax(arr, size, largest);
     }
 
 }
 
+void heapifyMin(int arr[], int size, int i)
+{
+    int smallest = i;
+    int left = 2*i;
+    int right = 2*i + 1;
+
+    if (left < size and arr[smallest] > arr[left])
+        smallest = left;
+
+    if (right < size and arr[smallest] > arr[right])
+        smallest = right;
+
+    if (smallest != i)
+    {
+        swap(arr[smallest], arr[i]);
+        heapifyMin(arr, size, smallest);
+    }
+}
+
 int main()
 {
-    int arr[6] = {-1, 54, 53, 55, 52, 50};
+    int arrMax[6] = {-1, 54, 53, 55, 52, 50};
+
+    int arrMin[6] = {-1, 9, 3, 2, 6, 7};
 
     int n = 5;
 
     for (int i = n/2; i > 0; i--)
     {
-        heapify(arr, n, i);
+        heapifyMax(arrMax, n, i);
     }
 
-    cout << "Printing the array after heapify call : ";
+    cout << "Max heap array after heapify call : ";
     
     for (int i = 1; i <= n; i++)
-        cout << arr[i] << " ";
+        cout << arrMax[i] << " ";
     
+    cout << endl;
+
+    for (int i = n/2; i > 0; i--)
+    {
+        heapifyMin(arrMin, n, i);
+    }
+
+    cout << "Min heap array after heapify call : ";
+
+    for (int i = 1; i <= n; i++)
+        cout << arrMin[i] << " ";
+        
     cout << endl;
     
     return 0;
