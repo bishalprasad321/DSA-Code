@@ -113,30 +113,24 @@ void heapifyMax(int arr[], int size, int i)
 
 }
 
-void heapifyMin(int arr[], int size, int i)
+void sortMaxHeap(int arr[], int size)
 {
-    int smallest = i;
-    int left = 2*i;
-    int right = 2*i + 1;
+    int n = size;
 
-    if (left <= size and arr[smallest] > arr[left])
-        smallest = left;
-
-    if (right <= size and arr[smallest] > arr[right])
-        smallest = right;
-
-    if (smallest != i)
+    while (n > 1)
     {
-        swap(arr[smallest], arr[i]);
-        heapifyMin(arr, size, smallest);
+        swap(arr[n], arr[1]);
+        n--;
+
+        // call heapify to correct the position of the root node
+        heapifyMax(arr, n, 1);
     }
 }
 
 int main()
 {
+    //  Heap Creation
     int arrMax[6] = {-1, 54, 53, 55, 52, 50};
-
-    int arrMin[6] = {-1, 9, 3, 2, 6, 7};
 
     int n = 5;
 
@@ -145,24 +139,17 @@ int main()
         heapifyMax(arrMax, n, i);
     }
 
-    cout << "Max heap array after heapify call : ";
-    
+    // Heap sorting
+    sortMaxHeap(arrMax, n);
+
+    // printing the result
+    cout << "Printing the sorted array : ";
+
     for (int i = 1; i <= n; i++)
         cout << arrMax[i] << " ";
-    
-    cout << endl;
-
-    for (int i = n/2; i > 0; i--)
-    {
-        heapifyMin(arrMin, n, i);
-    }
-
-    cout << "Min heap array after heapify call : ";
-
-    for (int i = 1; i <= n; i++)
-        cout << arrMin[i] << " ";
 
     cout << endl;
-    
+
+
     return 0;
 }
