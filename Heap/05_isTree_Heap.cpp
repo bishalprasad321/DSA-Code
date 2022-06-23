@@ -8,7 +8,9 @@ using namespace std;
     /  \ 
    20  10
 
-   
+    A Binary Tree is called a max heap, if it is a complete binary tree and it follows the maxorder property.
+
+    (i.e. where every parent node is grater than it's child node)
     
 */
 
@@ -46,6 +48,7 @@ bool isCBT(Node *root, int index, int nodeCount)
 
     else
     {
+        // 0 based indexing
         bool left = isCBT(root->left, 2*index + 1, nodeCount);
         bool right = isCBT(root->right, 2*index + 2, nodeCount);
 
