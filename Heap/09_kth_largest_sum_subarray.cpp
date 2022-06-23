@@ -6,6 +6,11 @@ using namespace std;
     find the K-th largest sum of the subarray.
 
     Please note that a subarray is the sequence of consecutive elements of the array.
+
+
+    algo ----
+    T.C -> O(n^2long(n))
+    S.C -> O(k)
 */
 
 int getKthLargest(vector<int> &arr, int k)
