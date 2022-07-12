@@ -106,5 +106,6 @@ int main()
     string ans = longestCommonPrefix(arr, 4);
 
     cout << ans;
+    
     return 0;
 }
