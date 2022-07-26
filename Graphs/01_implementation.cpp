@@ -1,13 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+template<typename T> // for creating generic graph
+
 class Graph
 {
     public:
-        unordered_map<int, list<int>> adj;
+        unordered_map<T, list<T>> adj;
 
 
-        void addEdge(int start, int end, bool direction = false)
+        void addEdge(T start, T end, bool direction = false)
         {
             // by default direction = false (i.e. undirected graph)
             // direction = true or 1 (i.e. graph is directed)
@@ -46,7 +48,7 @@ int main()
     cout << "Enter the number of edges : ";
     cin>> m;
 
-    Graph graph;
+    Graph<int> graph;
 
     for (int i = 0; i < m; i++)
     {
