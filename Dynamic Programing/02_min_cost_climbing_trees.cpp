@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Memoization + Recursion - Top Down
 int minCost_topDown(int n, vector<int> &cost, vector<int> &dp)
 {
     if (n == 0)
@@ -16,6 +17,7 @@ int minCost_topDown(int n, vector<int> &cost, vector<int> &dp)
     return dp[n];
 }
 
+// Tabulation - Bottom Up
 int minCost_bottomUp(int n, vector<int> &cost)
 {
     // vector creation
@@ -32,6 +34,7 @@ int minCost_bottomUp(int n, vector<int> &cost)
     return min(dp[n-1], dp[n-2]);
 }
 
+// Space Optimized 
 int minCost_spaceOptimized(int n, vector<int> &cost)
 {
     int prev2 = cost[0];
