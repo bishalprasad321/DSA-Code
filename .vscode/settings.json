@@ -3,6 +3,10 @@
         "ostream": "cpp",
         "new": "cpp",
         "iostream": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp"
     }
 }
